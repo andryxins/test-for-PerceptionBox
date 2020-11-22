@@ -1,0 +1,25 @@
+.pageContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pageTitle {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.signupText {
+  font-size: 40px;
+}
+
+.signupContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
