@@ -1,0 +1,16 @@
+.navContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.btn {
+  color: white;
+  text-decoration: none;
+}
+
+.disabledBtn {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

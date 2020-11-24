@@ -9,7 +9,7 @@ import TableCell from '@material-ui/core/TableCell';
 import CircularLoader from '../CircularLoader/CircularLoader';
 import CustomTableRowCell from '../CustomTableRowCell/CustomTableRowCell';
 import Styles from './CharacterVehicles.module.css';
-import { getCharacterVehicles } from '../../api/swapiApi';
+import { getAdditionalInformation } from '../../api/swapiApi';
 
 const CharacterVehicles = ({ vehiclesUrls }) => {
   const [vehicles, setVehicles] = useState([]);
@@ -20,7 +20,7 @@ const CharacterVehicles = ({ vehiclesUrls }) => {
 
     async function getAllVehicles() {
       await vehiclesUrls.forEach((url) =>
-        getCharacterVehicles(url).then((vehicle) => {
+        getAdditionalInformation(url).then((vehicle) => {
           setVehicles((prev) => [...prev, vehicle]);
           setIsLoading(false);
         })

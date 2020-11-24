@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 
 const PrivatRoute = ({
@@ -19,5 +19,11 @@ const PrivatRoute = ({
     }
   />
 );
+
+PrivatRoute.propTypes = {
+  isAuth: PropTypes.object,
+  userHandler: PropTypes.func,
+  component: PropTypes.any,
+};
 
 export default PrivatRoute;

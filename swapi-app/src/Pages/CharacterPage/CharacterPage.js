@@ -1,8 +1,7 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import PageTitle from '../../Components/PageTitle/PageTitle';
 import LikeActionButton from '../../Components/LikeActionButton/LikeActionButton';
 import GeneralCharacterDataTable from '../../Components/GeneralCharacterDataTable/GeneralCharacterDataTable';
 import CharacterHomeWorld from '../../Components/CharacterHomeWorld/CharacterHomeWorld';
@@ -37,7 +36,7 @@ const CharacterPage = ({ match, user, userHandler }) => {
 
   return (
     <>
-      <h1>Character details</h1>
+      <PageTitle value="Character details" />
       {isFavorite ? (
         <LikeActionButton
           actionType="delete"
@@ -71,12 +70,10 @@ const CharacterPage = ({ match, user, userHandler }) => {
   );
 };
 
-// CharacterPage.propTypes = {
-//   match: PropTypes.shape({
-//     params: {
-//       characterName: PropTypes.string,
-//     },
-//   }),
-// };
+CharacterPage.propTypes = {
+  match: PropTypes.any,
+  user: PropTypes.object,
+  userHandler: PropTypes.func,
+};
 
 export default CharacterPage;

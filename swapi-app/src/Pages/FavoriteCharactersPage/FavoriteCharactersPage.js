@@ -1,7 +1,8 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import CharactersList from '../../Components/CharactersList/CharactersList';
+import PageTitle from '../../Components/PageTitle/PageTitle';
 import { getCharacterByName } from '../../api/swapiApi';
 
 const FavoriteCharactersPage = ({ user }) => {
@@ -9,7 +10,7 @@ const FavoriteCharactersPage = ({ user }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (!user.likes.length === 0) return;
+    if (user.likes.length === 0) return setIsLoading(false);
 
     async function getAllVehicles() {
       await user.likes.forEach((character) =>
@@ -25,14 +26,18 @@ const FavoriteCharactersPage = ({ user }) => {
 
   return (
     <>
-      <h2>Favorite characters</h2>
+      <PageTitle value="Favorite characters" />
       {isLoading ? (
-        <h3>LOADING</h3>
+        <LinearProgress />
       ) : (
         <CharactersList characters={characters} />
       )}
     </>
   );
+};
+
+FavoriteCharactersPage.propTypes = {
+  user: PropTypes.object,
 };
 
 export default FavoriteCharactersPage;

@@ -20,11 +20,5 @@ export const getCharacterByName = (name) =>
     .get(`https://swapi.dev/api/people/?search=${name}`)
     .then(({ data }) => data.results[0]);
 
-export const getCharacterHomeWorld = (url) =>
-  axios.get(url).then((res) => res.data);
-
-export const getCharacterVehicles = (url) =>
-  axios.get(url).then((res) => res.data);
-
-export const getCharacterFilms = (url) =>
+export const getAdditionalInformation = (url) =>
   axios.get(url).then((res) => res.data);

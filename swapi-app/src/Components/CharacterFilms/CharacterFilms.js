@@ -8,7 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import CircularLoader from '../CircularLoader/CircularLoader';
 import CustomTableRowCell from '../CustomTableRowCell/CustomTableRowCell';
-import { getCharacterFilms } from '../../api/swapiApi';
+import { getAdditionalInformation } from '../../api/swapiApi';
 import Styles from './CharacterFilms.module.css';
 
 const CharacterFilms = ({ filmsUrls }) => {
@@ -20,7 +20,7 @@ const CharacterFilms = ({ filmsUrls }) => {
 
     async function getAllFilms() {
       await filmsUrls.forEach((url) =>
-        getCharacterFilms(url).then((film) => {
+        getAdditionalInformation(url).then((film) => {
           setCharacterFilms((prev) => [...prev, film]);
           setIsLoading(false);
         })
