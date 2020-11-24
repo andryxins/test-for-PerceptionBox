@@ -2,11 +2,20 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-const PrivatRoute = ({ isAuth, component: Component, ...rest }) => (
+const PrivatRoute = ({
+  isAuth,
+  userHandler,
+  component: Component,
+  ...rest
+}) => (
   <Route
     {...rest}
     render={(props) =>
-      isAuth ? <Component {...props} /> : <Redirect to="/signup" />
+      isAuth ? (
+        <Component {...props} user={isAuth} userHandler={userHandler} />
+      ) : (
+        <Redirect to="/signup" />
+      )
     }
   />
 );

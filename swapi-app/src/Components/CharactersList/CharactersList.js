@@ -15,7 +15,7 @@ const CharactersList = ({ characters }) => {
         {characters.map(({ id, name }, idx) => (
           <li key={id}>
             <ListItem button>
-              <Link className={Styles.link} to={`/character/${id}`}>
+              <Link className={Styles.link} to={`/character/${name}`}>
                 <ListItemText primary={name} />
               </Link>
             </ListItem>

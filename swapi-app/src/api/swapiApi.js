@@ -14,3 +14,17 @@ export const getAllcharacters = async () => {
   await getAllResponce();
   return characters.map((item, idx) => ({ ...item, id: idx + 1 }));
 };
+
+export const getCharacterByName = (name) =>
+  axios
+    .get(`https://swapi.dev/api/people/?search=${name}`)
+    .then(({ data }) => data.results[0]);
+
+export const getCharacterHomeWorld = (url) =>
+  axios.get(url).then((res) => res.data);
+
+export const getCharacterVehicles = (url) =>
+  axios.get(url).then((res) => res.data);
+
+export const getCharacterFilms = (url) =>
+  axios.get(url).then((res) => res.data);

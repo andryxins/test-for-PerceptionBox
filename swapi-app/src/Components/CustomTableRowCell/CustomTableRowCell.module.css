@@ -1,0 +1,10 @@
+.cell {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 20px;
+  justify-content: space-between;
+}
+
+.cellTitle {
+  font-weight: 800;
+}

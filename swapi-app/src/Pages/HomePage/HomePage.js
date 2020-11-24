@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CharactersList from '../../Components/CharactersList/CharactersList';
@@ -14,10 +13,11 @@ const HomePage = () => {
   useEffect(() => {
     async function getAllCharacters() {
       setIsLoading(true);
-      const responce = await getAllcharacters();
+      const allCharacters = await getAllcharacters();
 
-      setCharacters(responce);
       setIsLoading(false);
+      console.log(allCharacters);
+      return setCharacters(allCharacters);
     }
 
     getAllCharacters();
