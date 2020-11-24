@@ -18,9 +18,13 @@ const SearchBarAutoComplete = ({ characters, filterQuery, onChange }) => {
       }}
       id="controllable-states-demo"
       options={characters.map((item) => item.name)}
-      style={{ width: 300 }}
+      style={{ width: '100%' }}
       renderInput={(params) => (
-        <TextField {...params} label="Controllable" variant="outlined" />
+        <TextField
+          {...params}
+          label="Search your hero ..."
+          variant="outlined"
+        />
       )}
     />
   ) : null;
