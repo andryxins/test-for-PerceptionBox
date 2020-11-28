@@ -20,8 +20,3 @@ export const getUserInfo = (token) =>
       headers: { Authorization: `Bearer ${token}` },
     }
   );
-
-// export const getUserConfirm = () =>
-//   axios.get(
-//     `https://cors-anywhere.herokuapp.com/https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=77qg8cay7ed911&redirect_uri=http://localhost:3000/signup&scope=r_liteprofile%20r_emailaddress`
-//   );

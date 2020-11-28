@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import SearchBar from '../../Components/SearchBar/SearchBar';
 import PageTitle from '../../Components/PageTitle/PageTitle';
 import CharactersList from '../../Components/CharactersList/CharactersList';
 import { getAllcharacters } from '../../api/swapiApi';
-import SearchBarAutoComplete from '../../Components/SearchBar/SearchBarAutoComplete';
 import Styles from './HomePage.module.css';
 
 const HomePage = () => {
@@ -32,17 +32,16 @@ const HomePage = () => {
   return (
     <div className={Styles.pageContainer}>
       <PageTitle value="Star Wars Characters" />
-      {isLoading && <LinearProgress />}
-      <SearchBarAutoComplete
-        characters={characters}
-        onChange={setFilterQuery}
-        filterQuery={filterQuery}
-        // have some warnings with autocomplete, need more time to fix.
-        //Not sure that I made it right way, but it's works
-      />
-      <CharactersList
-        characters={filteredCharacters(characters, filterQuery)}
-      />
+      {isLoading ? (
+        <LinearProgress />
+      ) : (
+        <>
+          <SearchBar value={filterQuery} onChange={setFilterQuery} />
+          <CharactersList
+            characters={filteredCharacters(characters, filterQuery)}
+          />
+        </>
+      )}
     </div>
   );
 };
