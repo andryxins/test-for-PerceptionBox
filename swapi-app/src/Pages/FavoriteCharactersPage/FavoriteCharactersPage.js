@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CharactersList from '../../Components/CharactersList/CharactersList';
 import PageTitle from '../../Components/PageTitle/PageTitle';
-import { getCharacterByName } from '../../api/swapiApi';
+import { getAllFavoriteCharactersByName } from '../../api/swapiApi';
 
 const FavoriteCharactersPage = ({ user }) => {
   const [characters, setCharacters] = useState([]);
@@ -12,16 +12,14 @@ const FavoriteCharactersPage = ({ user }) => {
   useEffect(() => {
     if (user.likes.length === 0) return setIsLoading(false);
 
-    async function getAllVehicles() {
-      await user.likes.forEach((character) =>
-        getCharacterByName(character.name).then((character) => {
-          setCharacters((prev) => [...prev, character]);
-          setIsLoading(false);
-        })
-      );
-    }
+    const charactersNames = user.likes.map((item) => item.name);
 
-    getAllVehicles();
+    return getAllFavoriteCharactersByName(charactersNames).then(
+      (characters) => {
+        setCharacters(characters);
+        setIsLoading(false);
+      }
+    );
   }, [user]);
 
   return (

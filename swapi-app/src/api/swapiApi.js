@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import axios from 'axios';
 
 export const getAllcharacters = async () => {
@@ -18,6 +19,9 @@ export const getCharacterByName = (name) =>
   axios
     .get(`https://swapi.dev/api/people/?search=${name}`)
     .then(({ data }) => data.results[0]);
+
+export const getAllFavoriteCharactersByName = async (arrayOfNames) =>
+  Promise.all(arrayOfNames.map((name) => getCharacterByName(name)));
 
 export const getAdditionalInformation = (url) =>
   axios.get(url).then((res) => res.data);
