@@ -24,7 +24,7 @@ const App = () => {
   };
 
   return (
-    <Container maxWidth="sm" style={{ height: '100vh' }}>
+    <Container maxWidth="sm" style={{ padding: '10px 0 ', minHeight: '100vh' }}>
       {user && <Nav />}
       <Switch>
         <PrivatRoute isAuth={user} path="/" exact component={HomePage} />

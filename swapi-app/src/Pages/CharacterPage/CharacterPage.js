@@ -7,6 +7,7 @@ import GeneralCharacterDataTable from '../../Components/GeneralCharacterDataTabl
 import CharacterHomeWorld from '../../Components/CharacterHomeWorld/CharacterHomeWorld';
 import CharacterVehicles from '../../Components/CharacterVehicles/CharacterVehicles';
 import CharacterFilms from '../../Components/CharacterFilms/CharacterFilms';
+import parceUrlWithDeletedSpaces from '../../libs/parceUrlWithDeletedSpaces';
 import { getCharacterByName } from '../../api/swapiApi';
 
 const CharacterPage = ({ match, user, userHandler }) => {
@@ -15,10 +16,12 @@ const CharacterPage = ({ match, user, userHandler }) => {
 
   useEffect(() => {
     async function getCharacter() {
-      const character = await getCharacterByName(match.params.characterName);
+      const characterData = await getCharacterByName(
+        parceUrlWithDeletedSpaces(match.params.characterName)
+      );
 
       setIsLoading(false);
-      return setCharacter(character);
+      return setCharacter(characterData);
     }
 
     getCharacter();
@@ -28,7 +31,8 @@ const CharacterPage = ({ match, user, userHandler }) => {
 
   useEffect(() => {
     const isCurrentCharacterLike = user.likes.find(
-      (character) => character.name === match.params.characterName
+      (character) =>
+        character.name === match.params.characterName.split('-').join(' ')
     );
 
     return setIsFavorite(!!isCurrentCharacterLike);

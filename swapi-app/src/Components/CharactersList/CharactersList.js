@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Paper from '@material-ui/core/Paper';
+import deleteSpacesInUrl from '../../libs/deleteSpacesInUrl';
 import Styles from './CharactersList.module.css';
 
 const CharactersList = ({ characters }) =>
@@ -14,7 +15,10 @@ const CharactersList = ({ characters }) =>
         {characters.map(({ name }) => (
           <li key={name}>
             <ListItem button>
-              <Link className={Styles.link} to={`/character/${name}`}>
+              <Link
+                className={Styles.link}
+                to={`/character/${deleteSpacesInUrl(name)}`}
+              >
                 <ListItemText primary={name} />
               </Link>
             </ListItem>
