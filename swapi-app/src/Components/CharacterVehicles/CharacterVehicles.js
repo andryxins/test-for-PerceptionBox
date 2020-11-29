@@ -6,9 +6,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
+import SectionTitle from '../SectionTitle/SectionTitle';
 import CircularLoader from '../CircularLoader/CircularLoader';
 import CustomTableRowCell from '../CustomTableRowCell/CustomTableRowCell';
-import Styles from './CharacterVehicles.module.css';
 import { getAdditionalInformation } from '../../api/swapiApi';
 
 const CharacterVehicles = ({ vehiclesUrls }) => {
@@ -32,7 +32,7 @@ const CharacterVehicles = ({ vehiclesUrls }) => {
 
   return (
     <>
-      <h2 className={Styles.title}>Vehicles</h2>
+      <SectionTitle value="Vehicles" />
       {isLoading ? (
         <CircularLoader />
       ) : (

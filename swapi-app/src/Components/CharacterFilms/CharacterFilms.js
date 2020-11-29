@@ -6,10 +6,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
+import SectionTitle from '../SectionTitle/SectionTitle';
 import CircularLoader from '../CircularLoader/CircularLoader';
 import CustomTableRowCell from '../CustomTableRowCell/CustomTableRowCell';
 import { getAdditionalInformation } from '../../api/swapiApi';
-import Styles from './CharacterFilms.module.css';
 
 const CharacterFilms = ({ filmsUrls }) => {
   const [characterFilms, setCharacterFilms] = useState([]);
@@ -32,7 +32,7 @@ const CharacterFilms = ({ filmsUrls }) => {
 
   return (
     <>
-      <h2 className={Styles.title}>Films</h2>
+      <SectionTitle value="Films" />
       {isLoading ? (
         <CircularLoader />
       ) : (

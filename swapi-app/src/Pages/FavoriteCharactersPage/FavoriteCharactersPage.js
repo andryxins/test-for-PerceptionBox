@@ -31,7 +31,6 @@ const FavoriteCharactersPage = ({ user }) => {
         <CharactersList
           isPagintationActive
           quantityOnPage={10}
-          r
           characters={characters}
         />
       )}

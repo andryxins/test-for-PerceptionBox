@@ -6,12 +6,12 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
+import SectionTitle from '../SectionTitle/SectionTitle';
 import CustomTableRowCell from '../CustomTableRowCell/CustomTableRowCell';
-import Styles from './GeneralCharacterDataTable.module.css';
 
 const GeneralCharacterDataTable = ({ character }) => (
   <>
-    <h2 className={Styles.title}>Character general info</h2>
+    <SectionTitle value="Character general info" />
     <TableContainer component={Paper}>
       <Table>
         <TableBody>

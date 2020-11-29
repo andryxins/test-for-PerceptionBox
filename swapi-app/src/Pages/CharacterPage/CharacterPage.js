@@ -32,7 +32,8 @@ const CharacterPage = ({ match, user, userHandler }) => {
   useEffect(() => {
     const isCurrentCharacterLike = user.likes.find(
       (character) =>
-        character.name === match.params.characterName.split('-').join(' ')
+        character.name.split('-').join(' ') ===
+        match.params.characterName.split('-').join(' ')
     );
 
     return setIsFavorite(!!isCurrentCharacterLike);

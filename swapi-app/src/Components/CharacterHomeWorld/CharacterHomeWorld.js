@@ -6,10 +6,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
+import SectionTitle from '../SectionTitle/SectionTitle';
 import CircularLoader from '../CircularLoader/CircularLoader';
 import CustomTableRowCell from '../CustomTableRowCell/CustomTableRowCell';
 import { getAdditionalInformation } from '../../api/swapiApi';
-import Styles from './CharacterHomeWorld.module.css';
 
 const CharacterHomeWorld = ({ url }) => {
   const [characterHomeWorld, setCharacterHomeWorld] = useState({});
@@ -29,7 +29,7 @@ const CharacterHomeWorld = ({ url }) => {
 
   return (
     <>
-      <h2 className={Styles.title}>Home World</h2>
+      <SectionTitle value="Home World" />
       {isLoading ? (
         <CircularLoader />
       ) : (
