@@ -4,6 +4,7 @@ import SearchBar from '../../Components/SearchBar/SearchBar';
 import PageTitle from '../../Components/PageTitle/PageTitle';
 import CharactersList from '../../Components/CharactersList/CharactersList';
 import { getAllcharacters } from '../../api/swapiApi';
+import filterCharactersWithQuery from '../../libs/filterCharactersWithQuery';
 import Styles from './HomePage.module.css';
 
 const HomePage = () => {
@@ -22,13 +23,6 @@ const HomePage = () => {
     getAllCharacters();
   }, []);
 
-  const filteredCharacters = (arr, query) =>
-    query
-      ? arr.filter(({ name }) =>
-          name.toLowerCase().includes(filterQuery.toLowerCase())
-        )
-      : arr;
-
   return (
     <div className={Styles.pageContainer}>
       <PageTitle value="Star Wars Characters" />
@@ -38,7 +32,9 @@ const HomePage = () => {
         <>
           <SearchBar value={filterQuery} onChange={setFilterQuery} />
           <CharactersList
-            characters={filteredCharacters(characters, filterQuery)}
+            characters={filterCharactersWithQuery(characters, filterQuery)}
+            isPagintationActive={!filterQuery}
+            quantityOnPage={10}
           />
         </>
       )}

@@ -28,7 +28,12 @@ const FavoriteCharactersPage = ({ user }) => {
       {isLoading ? (
         <LinearProgress />
       ) : (
-        <CharactersList characters={characters} />
+        <CharactersList
+          isPagintationActive
+          quantityOnPage={10}
+          r
+          characters={characters}
+        />
       )}
     </>
   );
